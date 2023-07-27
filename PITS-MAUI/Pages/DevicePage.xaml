@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PITS_MAUI.Pages.DevicePage"
+              xmlns:model="clr-namespace:PITS_MAUI.Model"
+             NavigationPage.BackButtonTitle="Back"
+             Title="DevicePage">
+    <CollectionView x:Name="ScriptsCollectionView" SelectionMode="Single">
+        <CollectionView.ItemsSource>
+            <x:Array Type="{x:Type model:Devices}">
+                <model:Devices></model:Devices>
+            </x:Array>
+        </CollectionView.ItemsSource>
+        <CollectionView.ItemTemplate>
+            <DataTemplate x:DataType="model:Scripts">
+                <VerticalStackLayout BackgroundColor="{StaticResource Secondary}" Padding="5" Margin="2">
+                    <Label Text="{Binding scriptName}"/>
+
+                    <HorizontalStackLayout Padding="2">
+                        <Label Text="Script: "/>
+                        <Label Text="{Binding script}"/>
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout Padding="2">
+                        <Label Text="{Binding editedBy}"/>
+                    </HorizontalStackLayout>
+
+                </VerticalStackLayout>
+
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+
+</ContentPage>
